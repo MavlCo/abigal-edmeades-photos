@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Color tokens ── */
+  --color-paper: #fafaf7;
+  --color-surface: #ffffff;
+  --color-elevated: #f2efe8;
+  --color-ink: #1a1a1a;
+  --color-ink-dim: #5c5c5c;
+  --color-ink-muted: #9a9a95;
+  --color-border: #e8e5de;
+  --color-terracotta: #b8836a;
+  --color-olive: #5c5a3d;
+  --color-cta: #1a1a1a;
+  --color-cta-fg: #fafaf7;
+
+  /* ── Font families ── */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* ── Spacing scale ── */
+  --spacing-section: 6rem;
+  --spacing-section-sm: 4rem;
+
+  /* ── Border radius ── */
+  --radius-none: 0px;
+  --radius-pill: 9999px;
+}
+
+/* ── Base resets ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* ── Focus ring (terracotta, WCAG AA) ── */
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 3px;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Fraunces optical axes ── */
+.font-display-hero {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 30, "WONK" 10;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "SOFT" 30, "WONK" 0;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-terracotta);
+}
+
+/* ── Terracotta animated underline ── */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-terracotta);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Image hover zoom container ── */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Accordion ── */
+details[open] summary .chevron {
+  transform: rotate(180deg);
+}
+
+.chevron {
+  transition: transform 0.25s ease;
+}
+
+/* ── Section rhythm ── */
+.section-gap {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+@media (max-width: 768px) {
+  .section-gap {
+    padding-top: var(--spacing-section-sm);
+    padding-bottom: var(--spacing-section-sm);
+  }
+}
+
+/* ── Gradient text ── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-terracotta), var(--color-olive));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
