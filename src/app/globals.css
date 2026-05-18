@@ -142,3 +142,33 @@ details[open] summary .chevron {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* ── Scrollbar ── */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-terracotta) var(--color-elevated);
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-elevated);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-terracotta);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-olive);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-elevated);
+}
